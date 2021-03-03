@@ -9,7 +9,7 @@ terraform {
 
 provider "aws" {
   profile = "red"
-  region  = "eu-west-1"
+  region  = var.default_region
 }
 
 resource "aws_instance" "example" {
@@ -17,6 +17,6 @@ resource "aws_instance" "example" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "ExampleInstance"
+    Name = var.instance_name
   }
 }
